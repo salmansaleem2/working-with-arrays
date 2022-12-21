@@ -175,3 +175,31 @@ console.log(currenciesUnique);
 currenciesUnique.forEach(function (value, _, map) {
   console.log(`${value}: ${value}`);
 });
+
+const eurToUsd = 1.1;
+
+const movement = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const movementsUSD = movement.map(function (mov) {
+//   return mov * eurToUsd;
+//   // return mov;
+//   // return [234, 324, 2134];
+// });
+
+const movementsUSD = movement.map(
+  mov => mov * eurToUsd
+  // return mov;
+  // return [234, 324, 2134];
+);
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDfor = [];
+
+for (const mov of movement) {
+  movementsUSDfor.push(mov * eurToUsd);
+  // console.log(mov * eurToUsd);
+}
+
+console.log(movementsUSDfor);
