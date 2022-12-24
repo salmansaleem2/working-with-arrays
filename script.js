@@ -81,7 +81,6 @@ displayMovements(account1.movements);
 
 const createUserName = accs => {
   accs.forEach(acc => {
-    // console.log(acc);
     acc.username = acc.owner
       .toLowerCase()
       .split(' ')
@@ -90,26 +89,13 @@ const createUserName = accs => {
         return name[0];
       })
       .join('');
-    // console.log(ans, 'ans');
-    // return acc.username;
-    // return acc.name;
-    // createUserName(name.owner);
   });
-
-  // const username = user
-  //   .toLowerCase()
-  //   .split(' ')
-  //   .map(name => {
-  //     // return name.slice(0, 1);
-  //     return name[0];
-  //   })
-  //   .join('');
-  // return username;
 };
 
 // console.log(acc.username);
 createUserName(accounts);
-console.log(accounts);
+// console.log(accounts);
+
 // console.log(
 // clggggcreateUserName('Steven Thomas Williams'));
 
@@ -121,7 +107,28 @@ console.log(accounts);
 /////////////////////////////////////////////////
 // LECTURES
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+//  The Filter Method
+const deposits = movements.filter(mov => mov > 0);
+console.log(deposits);
+
+// For Of Loop
+const deposit = [];
+for (const mov of movements) {
+  if (mov > 0) {
+    // console.log(mov);
+    deposit.push(mov);
+  }
+}
+console.log(deposit);
+
+// Challenge
+const withdrawal = movements.filter(mov => mov < 0);
+console.log(withdrawal);
+
+// The Reduce Method
+console.log(movements);
 
 /////////////////////////////////////////////////
 
@@ -169,7 +176,7 @@ console.log(accounts);
 // console.log('jonas'.at(0));
 // console.log('jonas'.at(-1));
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // for (const [i, movements] of movements.entries()) {
 // for (const movement of movements) {
