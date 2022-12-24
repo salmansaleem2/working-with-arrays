@@ -79,6 +79,44 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const createUserName = accs => {
+  accs.forEach(acc => {
+    // console.log(acc);
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => {
+        //     // return name.slice(0, 1);
+        return name[0];
+      })
+      .join('');
+    // console.log(ans, 'ans');
+    // return acc.username;
+    // return acc.name;
+    // createUserName(name.owner);
+  });
+
+  // const username = user
+  //   .toLowerCase()
+  //   .split(' ')
+  //   .map(name => {
+  //     // return name.slice(0, 1);
+  //     return name[0];
+  //   })
+  //   .join('');
+  // return username;
+};
+
+// console.log(acc.username);
+createUserName(accounts);
+console.log(accounts);
+// console.log(
+// clggggcreateUserName('Steven Thomas Williams'));
+
+// const user = 'Steven Thomas Williams'; // stw
+// console.log(username.join(''));
+
+// console.log(username);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -159,26 +197,26 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // });
 
 // Map
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
-currencies.forEach(function (value, key, map) {
-  console.log(`${key}: ${value}`);
-});
+// currencies.forEach(function (value, key, map) {
+//   console.log(`${key}: ${value}`);
+// });
 
-// Set
-const currenciesUnique = new Set(['USD', 'GB', 'USD', 'EUR', 'EUR']);
-console.log(currenciesUnique);
-currenciesUnique.forEach(function (value, _, map) {
-  console.log(`${value}: ${value}`);
-});
+// // Set
+// const currenciesUnique = new Set(['USD', 'GB', 'USD', 'EUR', 'EUR']);
+// console.log(currenciesUnique);
+// currenciesUnique.forEach(function (value, _, map) {
+//   console.log(`${value}: ${value}`);
+// });
 
-const eurToUsd = 1.1;
+// const eurToUsd = 1.1;
 
-const movement = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movement = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // const movementsUSD = movement.map(function (mov) {
 //   return mov * eurToUsd;
@@ -186,20 +224,20 @@ const movement = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   // return [234, 324, 2134];
 // });
 
-const movementsUSD = movement.map(
-  mov => mov * eurToUsd
-  // return mov;
-  // return [234, 324, 2134];
-);
+// const movementsUSD = movement.map(
+//   mov => mov * eurToUsd
+//   // return mov;
+//   // return [234, 324, 2134];
+// );
 
-console.log(movements);
-console.log(movementsUSD);
+// console.log(movements);
+// console.log(movementsUSD);
 
-const movementsUSDfor = [];
+// const movementsUSDfor = [];
 
-for (const mov of movement) {
-  movementsUSDfor.push(mov * eurToUsd);
-  // console.log(mov * eurToUsd);
-}
+// for (const mov of movement) {
+//   movementsUSDfor.push(mov * eurToUsd);
+//   // console.log(mov * eurToUsd);
+// }
 
-console.log(movementsUSDfor);
+// console.log(movementsUSDfor);
