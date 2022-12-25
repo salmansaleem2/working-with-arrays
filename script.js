@@ -105,6 +105,26 @@ const calcDisplayBalance = movements => {
 };
 calcDisplayBalance(account1.movements);
 
+// Calculate summary
+const calcDisplaySummary = movements => {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumIn.textContent = `${incomes}€`;
+  const expenses = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumOut.textContent = `${Math.abs(expenses)}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter(int => int > 1)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+calcDisplaySummary(account1.movements);
+
 // Maximum value of the movement array
 const MaxNum = movements.reduce((acc, cur, i, arr) => {
   // console.log(`${acc} : ${cur} ::: ${cur > acc}`);
@@ -126,7 +146,16 @@ const MaxNum = movements.reduce((acc, cur, i, arr) => {
   // return acc;
 }, 0);
 
-console.log(MaxNum);
+// console.log(MaxNum);
+
+const eurToUsd = 1.1;
+// PIPELINE
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUsd)
+  .reduce((acc, cur) => acc + cur, 0);
+
+console.log(totalDepositsUSD);
 
 // console.log(calcPrintBalance(movements));
 // labelBalance.textContent = calcPrint Balance(movements);
@@ -286,3 +315,5 @@ console.log(MaxNum);
 // }
 
 // console.log(movementsUSDfor);
+
+// The Find Methid
