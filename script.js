@@ -94,6 +94,42 @@ const createUserName = accs => {
 
 // console.log(acc.username);
 createUserName(accounts);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const calcDisplayBalance = movements => {
+  const balance = movements.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+  labelBalance.textContent = `${balance} EUR`;
+  // console.log(balance);
+};
+calcDisplayBalance(account1.movements);
+
+// Maximum value of the movement array
+const MaxNum = movements.reduce((acc, cur, i, arr) => {
+  // console.log(`${acc} : ${cur} ::: ${cur > acc}`);
+  // console.log(arr);
+  // const max = acc + cur;
+  // const res = cur > acc ? (acc = cur) : acc;
+  // return res;
+  if (cur > acc) {
+    return (acc = cur);
+  } else {
+    return acc;
+  }
+
+  // if (cur > acc) {
+  //   const res = acc + cur;
+  //   return res;
+  // }
+  // return acc + cur;
+  // return acc;
+}, 0);
+
+console.log(MaxNum);
+
+// console.log(calcPrintBalance(movements));
+// labelBalance.textContent = calcPrint Balance(movements);
 // console.log(accounts);
 
 // console.log(
@@ -107,29 +143,31 @@ createUserName(accounts);
 /////////////////////////////////////////////////
 // LECTURES
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 //  The Filter Method
-const deposits = movements.filter(mov => mov > 0);
-console.log(deposits);
+// const deposits = movements.filter(mov => mov > 0);
+// console.log(deposits);
 
 // For Of Loop
-const deposit = [];
-for (const mov of movements) {
-  if (mov > 0) {
-    // console.log(mov);
-    deposit.push(mov);
-  }
-}
-console.log(deposit);
+// const deposit = [];
+// for (const mov of movements) {
+//   if (mov > 0) {
+//     // console.log(mov);
+//     deposit.push(mov);
+//   }
+// }
+// console.log(deposit);
 
 // Challenge
-const withdrawal = movements.filter(mov => mov < 0);
-console.log(withdrawal);
+// const withdrawal = movements.filter(mov => mov < 0);
+// console.log(withdrawal);
 
 // The Reduce Method
-console.log(movements);
-
+// console.log(movements);
+// const balance = movements.reduce((acc, cur, i, arr) => {
+//   console.log(`Iteration ${i} and ${acc}`);
+//   return acc + cur;
+// }, 0);
+// console.log(balance);
 /////////////////////////////////////////////////
 
 // let arr = ['a', 'b', 'c', 'd', 'e'];
