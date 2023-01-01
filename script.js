@@ -170,7 +170,7 @@ btnLogin.addEventListener('click', function (e) {
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     // Display UI and message
     labelWelcome.textContent = `Welcome ${currentAccount?.owner.split(' ')[0]}`;
-    containerApp.style.opacity = '1';
+    containerApp.style.opacity = 100;
 
     // clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -225,6 +225,25 @@ console.log(totalDepositsUSD);
 // console.log(username.join(''));
 
 // console.log(username);
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  let username = inputCloseUsername.value;
+  let pin = Number(inputClosePin.value);
+
+  if (currentAccount?.username === username && currentAccount?.pin === pin) {
+    console.log('correct');
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    // Delete Account
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = '0';
+  }
+  username = pin = '';
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
