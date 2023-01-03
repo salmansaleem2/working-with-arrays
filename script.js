@@ -417,3 +417,25 @@ console.log(account);
 
 // Separate Callback
 const deposit = mov => mov > 0;
+
+// Flat Method
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [T[([1, 2], 3)], [4, [5, 6], 7, 8]];
+
+console.log(arrDeep.flat(2));
+
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements, 'accountMovements');
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+// const addAllMovements = allMovements.reduce((acc, item) => acc + item, 0);
+// console.log(addAllMovements);
+
+const overAllbalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, item) => acc + item, 0);
+
+console.log(overAllbalance);
