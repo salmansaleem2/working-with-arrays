@@ -422,7 +422,7 @@ const deposit = mov => mov > 0;
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arr.flat());
 
-const arrDeep = [T[([1, 2], 3)], [4, [5, 6], 7, 8]];
+const arrDeep = [[([1, 2], 3)], [4, [5, 6], 7, 8]];
 
 console.log(arrDeep.flat(2));
 
@@ -433,9 +433,25 @@ console.log(arrDeep.flat(2));
 // const addAllMovements = allMovements.reduce((acc, item) => acc + item, 0);
 // console.log(addAllMovements);
 
-const overAllbalance = accounts
-  .map(acc => acc.movements)
-  .flat()
-  .reduce((acc, item) => acc + item, 0);
+// const overAllbalance = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, item) => acc + item, 0);
+// console.log(overAllbalance);
 
-console.log(overAllbalance);
+// Strings
+const owner = ['jonas', 'zach', 'Adam', 'martha'];
+console.log(owner.sort());
+console.log(owner);
+
+// Numbers
+console.log(movements);
+console.log(movements.sort());
+
+// return < 0, A, B (Keep order)
+// return > 0, B, A (Switcher order)
+movements.sort((a, b) => {
+  if (a > b) return 1;
+  if (b > a) return -1;
+});
+console.log(movements);
