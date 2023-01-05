@@ -61,10 +61,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
       <div class="movements__row">
@@ -213,6 +215,13 @@ const totalDepositsUSD = movements
   .reduce((acc, cur) => acc + cur, 0);
 
 console.log(totalDepositsUSD);
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
 
 // console.log(calcPrintBalance(movements));
 // labelBalance.textContent = calcPrint Balance(movements);
@@ -450,8 +459,46 @@ console.log(movements.sort());
 
 // return < 0, A, B (Keep order)
 // return > 0, B, A (Switcher order)
-movements.sort((a, b) => {
-  if (a > b) return 1;
-  if (b > a) return -1;
-});
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (b > a) return -1;
+// });
+// console.log(movements);
+
+movements.sort((a, b) => a - b);
 console.log(movements);
+
+const arr2 = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+const x = new Array(7);
+console.log(x);
+
+// x.fill(4);
+x.fill(1, 2, 5);
+console.log(x);
+
+arr2.fill(23, 4, 6);
+console.log(arr2);
+
+// Array.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+const randomNumber = Array.from({ length: 100 }, () =>
+  Math.ceil(Math.random() * 6)
+);
+console.log(randomNumber);
+
+// console.log(movementUI);
+
+labelBalance.addEventListener('click', function () {
+  const movementUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => el.textContent.replace('€', '')
+  );
+  console.log(movementUI);
+  // console.log(movementUI.map(el => el.textContent.replace('€', '')));
+});
