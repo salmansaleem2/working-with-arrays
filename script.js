@@ -502,3 +502,58 @@ labelBalance.addEventListener('click', function () {
   console.log(movementUI);
   // console.log(movementUI.map(el => el.textContent.replace('€', '')));
 });
+
+///////////////////////////////
+// Array Method Practice`
+
+// 1.
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(deposit => deposit > 0)
+  .reduce((acc, cur) => acc + cur, 0);
+console.log(bankDepositSum);
+
+// 2.0
+const numDeposits1000 = accounts
+  .flatMap(acc => acc.movements)
+  .filter(sum => sum >= 1000).length;
+console.log(numDeposits1000);
+
+// 2.1
+const numDeposits1000WithReduce = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+
+console.log(numDeposits1000WithReduce);
+
+// create an object the sum of an deposits and of withdraws
+// 3.
+const { deposits, withdrawals } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+      // Alternate way
+      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+console.log(deposits, withdrawals);
+
+//////////////////////////////
+
+// Title case means all words in a sentence are capitalized
+// 4.
+// this is a title -> This Is a Title
+
+const convertTitleCase = function (title) {
+  const split = title.split(' ').map(item => {
+    return item.length > 1
+      ? item.slice(0, 1).toUpperCase() + item.slice(1)
+      : item;
+  });
+  return split;
+};
+
+console.log(convertTitleCase('this is a title'));
