@@ -556,4 +556,5 @@ const convertTitleCase = function (title) {
   return split;
 };
 
+// console.log(convertTitleCase('this is a title'));
 console.log(convertTitleCase('this is a title'));
