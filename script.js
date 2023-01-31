@@ -173,5 +173,6 @@ currencies.forEach(function (value, key, map) {
 const currenciesUnique = new Set(['USD', 'GB', 'USD', 'EUR', 'EUR']);
 console.log(currenciesUnique);
 currenciesUnique.forEach(function (value, _, map) {
+  // console.log(`${value}: ${value}`);
   console.log(`${value}: ${value}`);
 });
