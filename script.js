@@ -390,6 +390,14 @@ btnClose.addEventListener('click', function (e) {
 
 // const eurToUsd = 1.1;
 
+<<<<<<< HEAD
+// Set
+const currenciesUnique = new Set(['USD', 'GB', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+currenciesUnique.forEach(function (value, _, map) {
+  // console.log(`${value}: ${value}`);
+  console.log(`${value}: ${value}`);
+=======
 // const movement = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // const movementsUSD = movement.map(function (mov) {
@@ -501,6 +509,7 @@ labelBalance.addEventListener('click', function () {
   );
   console.log(movementUI);
   // console.log(movementUI.map(el => el.textContent.replace('€', '')));
+>>>>>>> 3511fdc9bef8e1df9e896a36ad7780c8b98cd662
 });
 
 ///////////////////////////////
